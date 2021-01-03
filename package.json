@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/justinrabe/express-server/issues"
   },
-  "homepage": "https://github.com/justinrabe/express-server#readme"
+  "homepage": "https://github.com/justinrabe/express-server#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
