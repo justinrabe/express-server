@@ -1,0 +1,20 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "Messing around with express.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justinrabe/express-server.git"
+  },
+  "author": "Justin Rabe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justinrabe/express-server/issues"
+  },
+  "homepage": "https://github.com/justinrabe/express-server#readme"
+}
