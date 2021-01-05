@@ -1,3 +1,6 @@
+# Hides api keys
+config.js
+
 # Logs
 logs
 *.log
