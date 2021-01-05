@@ -2,7 +2,15 @@ const express = require ("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const app = express();
-const url = 
+const secretKey = config.WEATHER_APIKEY;
+const openWeatherURL = "api.openweathermap.org/data/2.5/weather?q=";
+let city = "SanDiego";
+let state = "CA";
+let country = "US";
+
+const elements = [city, state, country];
+let cityStateCountry = elements.join();
+let fullQuery = openWeatherURL + city + "&appid=" + cityStateCountry;
 app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res) => {
     res.sendFile(__dirname + "/index.html");
@@ -15,3 +23,4 @@ app.post('/', (req, res) => {
 app.listen(3000, () => {
     console.log('app listening at http://localhost:3000');
 })
+
