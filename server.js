@@ -2,18 +2,26 @@ const express = require ("express");
 const bodyParser = require("body-parser");
 const https = require("https");
 const app = express();
+const { config } = require("./config.js");
 const secretKey = config.WEATHER_APIKEY;
+
 const openWeatherURL = "api.openweathermap.org/data/2.5/weather?q=";
-let city = "SanDiego";
+let city = "San Diego";
 let state = "CA";
 let country = "US";
 
 const elements = [city, state, country];
 let cityStateCountry = elements.join();
-let fullQuery = openWeatherURL + city + "&appid=" + cityStateCountry;
+let fullQuery = openWeatherURL + cityStateCountry + "&appid=" + secretKey;
 app.use(bodyParser.urlencoded({extended: true}));
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + "/index.html");
+    https.get(fullQuery, (response) => {
+        response.on("data", (data) => {
+            const weatherData = JSON.parse(data);
+            console.log(weatherData);
+        })
+    })
+    res.send("Server running");
 })
 
 app.post('/', (req, res) => {
